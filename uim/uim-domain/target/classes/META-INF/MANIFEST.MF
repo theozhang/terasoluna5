@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: uim-domain
+Implementation-Version: 1.0.0-SNAPSHOT
+Built-By: zhangs
+Implementation-Vendor-Id: com.dhc.uim
+Build-Jdk: 1.8.0_191
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: TERASOLUNA Framework Team
+
