@@ -66,6 +66,11 @@
 <!--             <artifactId>ojdbc8</artifactId> -->
 <!--             <scope>test</scope> -->
 <!--         </dependency> -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
+        </dependency>
         <!-- == End Database == -->
 
         <!-- == Begin Unit Test == -->

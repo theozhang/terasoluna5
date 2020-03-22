@@ -9,7 +9,7 @@
 
     <bean id="dateFactory" class="org.terasoluna.gfw.common.date.jodatime.DefaultJodaTimeDateFactory" />
 
-    <bean id="realDataSource" class="org.apache.commons.dbcp2.BasicDataSource"
+<!--     <bean id="realDataSource" class="org.apache.commons.dbcp2.BasicDataSource"
         destroy-method="close">
         <property name="driverClassName" value="${database.driverClassName}" />
         <property name="url" value="${database.url}" />
@@ -20,18 +20,36 @@
         <property name="maxIdle" value="${cp.maxIdle}" />
         <property name="minIdle" value="${cp.minIdle}" />
         <property name="maxWaitMillis" value="${cp.maxWait}" />
+    </bean> -->
+    <bean id="realDataSource" class="org.apache.commons.dbcp2.BasicDataSource"
+        destroy-method="close">
+        <property name="driverClassName" value="${mysql.database.driverClassName}" />
+        <property name="url" value="${mysql.database.url}" />
+        <property name="username" value="${mysql.database.username}" />
+        <property name="password" value="${mysql.database.password}" />
+        <property name="defaultAutoCommit" value="false" />
+        <property name="maxTotal" value="${mysql.cp.maxActive}" />
+        <property name="maxIdle" value="${mysql.cp.maxIdle}" />
+        <property name="minIdle" value="${mysql.cp.minIdle}" />
+        <property name="maxWaitMillis" value="${mysql.cp.maxWait}" />
     </bean>
-
-
+    
+        <!-- Create DataSource Bean -->
+     
+  <!--   <bean id="realDataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName" value="java:comp/env/jdbc/MyLocalDB"/>
+    </bean> -->
+    
+    
     <bean id="dataSource" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
         <constructor-arg index="0" ref="realDataSource" />
     </bean>
 
-    <jdbc:initialize-database data-source="dataSource"
+  <!--   <jdbc:initialize-database data-source="dataSource"
         ignore-failures="ALL">
         <jdbc:script location="classpath:/database/${database}-schema.sql" encoding="UTF-8" />
         <jdbc:script location="classpath:/database/${database}-dataload.sql" encoding="UTF-8" />
-    </jdbc:initialize-database>
+    </jdbc:initialize-database> -->
 
     <!--  REMOVE THIS LINE IF YOU USE JPA
     <bean id="transactionManager"
